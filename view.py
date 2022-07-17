@@ -15,3 +15,7 @@ PlanSerializer(data=request.data)
             return Response({"status": "success", "data": serializer.data}, status=status.HTTP_200_OK)
         else:
             return Response({"status": "error", "data": serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
+        
+class PansViewSet(viewsets.ModelViewSet):
+    queryset = Plans.objects.all().order_by('plan_name')
+    serializer_class = PlanSerializer
