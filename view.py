@@ -8,7 +8,8 @@ from .models import Plan
 
 class PlanViews(APIView):
     def post(self, request):
-        serializer = CartItemSerializer(data=request.data)
+        serializer = 
+PlanSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response({"status": "success", "data": serializer.data}, status=status.HTTP_200_OK)
